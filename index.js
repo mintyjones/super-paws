@@ -1,10 +1,10 @@
 // dogs fetching code
-function getData(){
-    fetch('https://api.thedogapi.com/v1/images/search')
-        .then(response => response.json())
-        .then(data => {createDog(data)})
-        .catch(e => {console.log(e)})
-}
+// function getData(){
+//     fetch('https://api.thedogapi.com/v1/images/search')
+//         .then(response => response.json())
+//         .then(data => {createDog(data)})
+//         .catch(e => {console.log(e)})
+// }
 const dogPool = document.querySelector(".dogPool")
 
 function createDog(dog){
@@ -18,10 +18,12 @@ function printDogs(dogs){
     console.log(dogs)
 }
 
-getData();
+// getData();
 
 const heroButton = document.getElementById("randomPaw")
 heroButton.addEventListener("click", getData)
+
+//Gordon superhero code with animal pic
 
 const urlHero = 'https://superheroapi.com/api.php/10157727801421556/'
 const numberOfHeroes = 2
@@ -39,15 +41,15 @@ function getHeroData(){
     let heroNum = randomHero();
     fetch(urlHero+heroNum)
     .then(response => response.json())
-    .then(data => printHeroDetails(data))
+    .then(data => storeHeroDetails(data))
     .catch(e => {console.log(e)})
     // heroPool.appendChild()
 }
 
-function getAnimalData(){
+function getAnimalData(index){
     fetch('https://api.thedogapi.com/v1/images/search')
         .then(response => response.json())
-        .then(data => {console.log(data)})
+        .then(data => storeAnimImage(data, index))
         .catch(e => {console.log(e)})
 }
 
@@ -59,7 +61,7 @@ function getAnimalData(){
 //     }
 // }
 
-function printHeroDetails(herodata){
+function storeHeroDetails(herodata){
     // console.log(herodata)
     // console.log(herodata.name)
     // console.log(`Combat: ${herodata.powerstats.combat}`)
@@ -76,6 +78,10 @@ function printHeroDetails(herodata){
     // heroName.innerText = herodata.name
 }
 
+function storeAnimImage(animimg, index) {
+    allHeroData[index].image = animimg[0].url
+}
+
 // const loadHeroesButton = document.getElementById("getHeroes")
 
 // loadHeroesButton.addEventListener('click', getHeroData)
@@ -83,5 +89,6 @@ function printHeroDetails(herodata){
 // apiUrls.forEach(url => {
     for (i=0;i<numberOfHeroes;i++) {
         getHeroData();
+        getAnimalData(i)
     }
 // });
