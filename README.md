@@ -1,2 +1,2 @@
 # super-paws
-A little app that creates and maybe pits the bests Superpaws against each other
+A little app that creates and maybe pits the best Superpaws against each other
