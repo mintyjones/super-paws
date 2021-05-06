@@ -78,17 +78,29 @@ function storeHeroDetails(herodata){
     // heroName.innerText = herodata.name
 }
 
+function addHeroElements() {
+    allHeroData = []
+    let names = document.querySelectorAll("h3")
+    console.log(names)
+    names.forEach(getName)
+}
+
+function getName() {
+    console.log("Here's a name")
+}
+
 function storeAnimImage(animimg, index) {
     allHeroData[index].image = animimg[0].url
 }
 
-// const loadHeroesButton = document.getElementById("getHeroes")
+const loadHeroesButton = document.getElementById("getHeroes")
 
-// loadHeroesButton.addEventListener('click', getHeroData)
+loadHeroesButton.addEventListener('click', gatherAllData)
 
-// apiUrls.forEach(url => {
+function gatherAllData() {
     for (i=0;i<numberOfHeroes;i++) {
         getHeroData();
         getAnimalData(i)
     }
-// });
+    addHeroElements()
+}
