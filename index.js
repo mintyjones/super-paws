@@ -5,18 +5,19 @@
 //         .then(data => {createDog(data)})
 //         .catch(e => {console.log(e)})
 // }
-const dogPool = document.querySelector(".dogPool")
+// const dogPool = document.querySelector(".dogPool")
 
-function createDog(dog){
-    dogPool.innerHTML = ""
-    let dogImage = document.createElement("img")
-    dogImage.src = dog[0].url
-    dogPool.appendChild(dogImage)
-}
+// function createDog(dog){
+//     dogPool.innerHTML = ""
+//     let dogImage = document.createElement("img")
+//     dogImage.src = dog[0].url
+//     dogPool.appendChild(dogImage)
 
-function printDogs(dogs){
-    console.log(dogs)
-}
+// }
+
+// function printDogs(dogs){
+//     console.log(dogs)
+// }
 
 // getData();
 
@@ -102,3 +103,16 @@ function gatherAllData() {
     }
     setTimeout(addHeroElements,2000)
 }
+
+// const heroButton = document.getElementById("randomPaw")
+// heroButton.addEventListener("click", getData)
+
+console.log("hi first")
+// const petNames = require('pet-names');
+<script src="your-js" type="module">
+import petNames from 'pet-names';
+const petGroup = petNames.random();
+console.log('hi')
+console.log(petGroup)
+let petName = document.getElementById("petname");
+petName.innerText = petGroup
