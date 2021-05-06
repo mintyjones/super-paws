@@ -60,7 +60,7 @@ function storeHeroDetails(herodata,index){
     let heroObj = new Object();
     heroObj.name = herodata.name
     heroObj.stats = herodata.powerstats
-    heroObj.image = "something"
+    // heroObj.image = "something"
     allHeroData.push(heroObj)
     getAnimalData(index)
     console.log(allHeroData)
