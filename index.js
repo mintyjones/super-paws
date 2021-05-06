@@ -20,14 +20,14 @@ function printDogs(dogs){
 
 // getData();
 
-const heroButton = document.getElementById("randomPaw")
-heroButton.addEventListener("click", getData)
+// const heroButton = document.getElementById("randomPaw")
+// heroButton.addEventListener("click", getData)
 
 //Gordon superhero code with animal pic
 
 const urlHero = 'https://superheroapi.com/api.php/10157727801421556/'
 const numberOfHeroes = 2
-const allHeroData = []
+let allHeroData = []
 const apiUrls = ['https://superheroapi.com/api.php/10157727801421556/', 'https://api.thedogapi.com/v1/images/search']
 
 const heroPool = document.querySelector("#heroName")
@@ -37,13 +37,12 @@ function randomHero() {
     return heroId
 }
 
-function getHeroData(){
+function getHeroData(index){
     let heroNum = randomHero();
     fetch(urlHero+heroNum)
     .then(response => response.json())
-    .then(data => storeHeroDetails(data))
+    .then(data => storeHeroDetails(data, index))
     .catch(e => {console.log(e)})
-    // heroPool.appendChild()
 }
 
 function getAnimalData(index){
@@ -53,17 +52,7 @@ function getAnimalData(index){
         .catch(e => {console.log(e)})
 }
 
-// function storeHeroData(heroData) {
-//     let allHeroData = []
-//     for (i=0;i<numberOfHeroes;i++) {
-//         let singleHero = []
-        
-//     }
-// }
-
-function storeHeroDetails(herodata){
-    // console.log(herodata)
-    // console.log(herodata.name)
+function storeHeroDetails(herodata,index){
     // console.log(`Combat: ${herodata.powerstats.combat}`)
     // console.log(`Intelligence: ${herodata.powerstats.intelligence}`)
     // console.log(`Speed: ${herodata.powerstats.speed}`)
@@ -71,18 +60,27 @@ function storeHeroDetails(herodata){
     let heroObj = new Object();
     heroObj.name = herodata.name
     heroObj.stats = herodata.powerstats
-    console.log(heroObj)
+    heroObj.image = "something"
     allHeroData.push(heroObj)
+    getAnimalData(index)
     console.log(allHeroData)
-    // let heroName = document.getElementById("heroName")
-    // heroName.innerText = herodata.name
 }
 
 function addHeroElements() {
-    allHeroData = []
     let names = document.querySelectorAll("h3")
-    console.log(names)
-    names.forEach(getName)
+    let images = document.querySelectorAll("img")
+    let lists = document.querySelectorAll("ul")
+    for (i=0;i<numberOfHeroes;i++) {
+        lists[i].innerText = ""
+        names[i].innerText = allHeroData[i].name
+        images[i+1].src = allHeroData[i].image
+        for (stat in allHeroData[i].stats) {
+            let listItem = document.createElement("li")
+            console.log(typeof stat)
+            listItem.innerText = stat + ": " + allHeroData[i].stats[stat]
+            lists[i].appendChild(listItem)
+        }
+    }
 }
 
 function getName() {
@@ -93,14 +91,14 @@ function storeAnimImage(animimg, index) {
     allHeroData[index].image = animimg[0].url
 }
 
-const loadHeroesButton = document.getElementById("getHeroes")
+const loadHeroesButton = document.getElementById("start")
 
 loadHeroesButton.addEventListener('click', gatherAllData)
 
 function gatherAllData() {
+    allHeroData = []
     for (i=0;i<numberOfHeroes;i++) {
-        getHeroData();
-        getAnimalData(i)
+        getHeroData(i);
     }
-    addHeroElements()
+    setTimeout(addHeroElements,2000)
 }
