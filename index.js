@@ -107,12 +107,12 @@ function gatherAllData() {
 // const heroButton = document.getElementById("randomPaw")
 // heroButton.addEventListener("click", getData)
 
-console.log("hi first")
-// const petNames = require('pet-names');
-<script src="your-js" type="module">
-import petNames from 'pet-names';
-const petGroup = petNames.random();
-console.log('hi')
-console.log(petGroup)
-let petName = document.getElementById("petname");
-petName.innerText = petGroup
+// console.log("hi first")
+// // const petNames = require('pet-names');
+// <script src="your-js" type="module">
+// import petNames from 'pet-names';
+// const petGroup = petNames.random();
+// console.log('hi')
+// console.log(petGroup)
+// let petName = document.getElementById("petname");
+// petName.innerText = petGroup
