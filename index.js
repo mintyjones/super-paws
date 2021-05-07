@@ -74,7 +74,7 @@ function addHeroElements() {
     for (i=0;i<numberOfHeroes;i++) {
         lists[i].innerText = ""
         names[i].innerText = allHeroData[i].name
-        images[i+1].src = allHeroData[i].image
+        images[i].src = allHeroData[i].image
         for (stat in allHeroData[i].stats) {
             let listItem = document.createElement("li")
             console.log(typeof stat)

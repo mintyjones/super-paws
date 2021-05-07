@@ -1,8 +1,10 @@
-.display-4 {
+.display {
     background-color: white;
-    margin-top: 2px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-top: 10px;
+    margin-left: 40%;
+    margin-right: 40%;
+    font-family: 'Bebas Neue', cursive;
+    padding: 30px 60px;
 }
 
 body {
@@ -10,31 +12,47 @@ body {
     
     }
 
+.row {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+h1 {
+    font-size: 3.5em;
+    padding-bottom: 20px;
+}
+
 h3 {
     font-family: 'Bebas Neue', cursive;
 }
 
 .herostats {
     font-family: 'Bebas Neue', cursive;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .lead {
-    background-color: white;
-    margin-top: 2px;
-    margin-left: 30%;
-    margin-right: 30%;
+    font-size: 1.5rem;
 }
 
-.photo {
-    width: 90%;
-    height: 70%;
-    }
-
+.stats {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 #start {
-    width: 150px;
-    height: 80px;
+    width: 250px;
+    height: 100px;
     margin-left: 5%;
-    margin-top: 50px;
+    margin-top: 200px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
 }
